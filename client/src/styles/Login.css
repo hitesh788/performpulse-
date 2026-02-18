@@ -1,0 +1,67 @@
+.login-container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #0f172a;
+}
+
+.login-card {
+  background: white;
+  padding: 30px;
+  width: 350px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.login-card h2 {
+  margin-bottom: 20px;
+}
+
+.role-select {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.role-select button {
+  flex: 1;
+  margin: 5px;
+  padding: 8px;
+  border: none;
+  cursor: pointer;
+  background: #e2e8f0;
+}
+
+.role-select .active {
+  background: #1e293b;
+  color: white;
+}
+
+.login-card input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 10px;
+  background: #1e293b;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+.login-role {
+  margin: 10px 0;
+  text-align: left;
+}
+
+.login-role select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+}
+

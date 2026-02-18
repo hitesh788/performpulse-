@@ -1,12 +1,16 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import loginImage from "../assets/logo-bg.png";
+import { toast } from "react-toastify";
+
+
 import "../styles/Login.css";
 
 function Login() {
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("hr"); // default role
+  const [role, setRole] = useState("hr");
   const [error, setError] = useState("");
 
   const navigate = useNavigate();
@@ -14,72 +18,79 @@ function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
 
-    // ✅ HR LOGIN
-    if (
-      email === "admin" &&
-      password === "admin123" &&
-      role === "hr"
-    ) {
-      localStorage.setItem("token", "dummyToken");
+    // TEMP LOGIN
+    if (email === "admin" && password === "admin123" && role === "hr") {
+      localStorage.setItem("token", "dummy");
       localStorage.setItem("role", "hr");
+      toast.success("HR Login Successful");
+navigate("/hr");
+
       navigate("/hr");
       return;
     }
 
-    // ✅ MANAGER LOGIN
-    if (
-      email === "manager" &&
-      password === "manager123" &&
-      role === "manager"
-    ) {
-      localStorage.setItem("token", "dummyToken");
+    if (email === "manager" && password === "manager123" && role === "manager") {
+      localStorage.setItem("token", "dummy");
       localStorage.setItem("role", "manager");
+      toast.success("Manager Login Successful");
+navigate("/manager");
+
       navigate("/manager");
       return;
     }
 
-    // ❌ INVALID
-    setError("Invalid credentials");
+    toast.error("Invalid credentials");
+
   };
 
   return (
-    <div className="login-container">
-      <div className="login-card">
+    <div className="login-wrapper">
 
-        <h2>Performance Appraisal System</h2>
+      {/* LEFT SIDE */}
+      <div className="login-left">
+        <div className="login-box">
 
-        {error && <p className="error">{error}</p>}
+          <h2>Welcome to PerformPulse</h2>
+         
+         <br>
+         </br>
 
-        <form onSubmit={handleLogin}>
-          <input
-            type="text"
-            placeholder="Username"
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          {error && <p className="error">{error}</p>}
 
-          <input
-            type="password"
-            placeholder="Password"
-            onChange={(e) => setPassword(e.target.value)}
-          />
+          <form onSubmit={handleLogin}>
 
-          {/* ✅ LOGIN AS SECTION */}
-          <div className="login-role">
-            <label>Login as:</label>
+            <input
+              type="text"
+              placeholder="Username"
+              onChange={(e) => setEmail(e.target.value)}
+            />
 
-            <select
-              value={role}
-              onChange={(e) => setRole(e.target.value)}
-            >
-              <option value="hr">HR</option>
-              <option value="manager">Manager</option>
-            </select>
-          </div>
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
 
-          <button type="submit">Login</button>
-        </form>
+            <div className="login-role">
+              <label>Login as</label>
+              <select value={role} onChange={(e) => setRole(e.target.value)}>
+                <option value="hr">HR</option>
+                <option value="manager">Manager</option>
+              </select>
+            </div>
 
+            <button type="submit">Login in</button>
+
+          </form>
+        </div>
       </div>
+
+      {/* RIGHT SIDE */}
+      <div className="login-right">
+  <img src={loginImage} draggable="false" alt="Login Visual" />
+</div>
+
+
     </div>
   );
 }

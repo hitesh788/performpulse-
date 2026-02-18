@@ -1,5 +1,7 @@
 import React from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import Login from "./pages/Login";
 import HRDashboard from "./pages/hr/HRDashboard";
@@ -42,6 +44,14 @@ function App() {
           }
         />
       </Routes>
+      <ToastContainer
+  position="top-right"
+  autoClose={2000}
+  pauseOnHover={false}
+  pauseOnFocusLoss={false}
+  draggable={false}
+/>
+
     </BrowserRouter>
   );
 }

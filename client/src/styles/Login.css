@@ -1,67 +1,87 @@
-.login-container {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.login-wrapper {
+  display: flex;
   height: 100vh;
+  font-family: Arial, sans-serif;
+}
+
+/* LEFT SIDE */
+.login-left {
+  width: 40%;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #0f172a;
+  background: #ffffff;
 }
 
-.login-card {
-  background: white;
-  padding: 30px;
-  width: 350px;
-  border-radius: 8px;
-  text-align: center;
+.login-box {
+  width: 320px;
 }
 
-.login-card h2 {
+.login-box h2 {
+  margin-bottom: 5px;
+  color: #1e293b;
+}
+
+.subtitle {
+  color: gray;
   margin-bottom: 20px;
 }
 
-.role-select {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 20px;
-}
-
-.role-select button {
-  flex: 1;
-  margin: 5px;
-  padding: 8px;
-  border: none;
-  cursor: pointer;
-  background: #e2e8f0;
-}
-
-.role-select .active {
-  background: #1e293b;
-  color: white;
-}
-
-.login-card input {
+.login-box input,
+.login-box select {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
 }
 
-.login-btn {
+.login-box button {
   width: 100%;
-  padding: 10px;
-  background: #1e293b;
+  padding: 12px;
+  background: linear-gradient(90deg, #4f46e5, #6366f1);
   color: white;
   border: none;
+  border-radius: 6px;
   cursor: pointer;
 }
-.login-role {
-  margin: 10px 0;
-  text-align: left;
+
+.login-box button:hover {
+  opacity: 0.9;
 }
 
-.login-role select {
-  width: 100%;
-  padding: 8px;
-  margin-top: 5px;
+.error {
+  color: red;
+  margin-bottom: 10px;
 }
 
+/* RIGHT SIDE */
+.login-right {
+  width: 60%;
+  background: linear-gradient(135deg, #eef2ff, #c7d2fe);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Decorative cube effect */
+.glass-box {
+  width: 220px;
+  height: 220px;
+  background: rgba(99, 102, 241, 0.5);
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+.login-wrapper {
+  margin: 20px;
+  border-radius: 30px;
+  overflow: hidden;
+  box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+}
